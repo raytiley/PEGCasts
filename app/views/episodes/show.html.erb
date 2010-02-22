@@ -1,0 +1,43 @@
+<% title "Pegcasts.org - " + @episode.title %>
+<% content_for :head do %>
+	<%= javascript_include_tag "reply" %>
+<% end %>
+<h1><%=h @episode.title %></h1>
+
+<div class="vimeoContainer">
+  <%= @episode.embed_tag %>
+</div>
+
+<div class="episodeDescription">
+  <%=h @episode.description %>
+</div>
+
+<br style="clear:both" />
+
+<div class="episodeNotes">
+  <%=h @episode.notes %>
+</div>
+
+<div id="comments">
+	<h2>Comments:</h2>
+	<%= render :partial => "shared/comments", :collection => @episode.comments, :as => :comment,  :locals => {:reply => 0} %>
+</div>
+<% form_for [@episode, Comment.new], :html => {:id => "new_episode_comment"} do |f| %>
+  <p>
+	<%= f.label :nickname %><br />
+	<%= f.text_field :nickname, :value => "Bilbo Baggins" %>
+  </p>
+  <p>
+	<%= f.label :location %><br />
+	<%= f.text_field :location, :value => "Bag End, Middle Earth" %>
+  </p>
+  <p>
+	<%= f.label :subject %><br />
+	<%= f.text_field :subject, :value => "My Birthday Party" %>
+  </p>
+  <p>
+    <%= f.label :content, "Comment" %><br />
+    <%= f.text_area :content, :size => "60x5" %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

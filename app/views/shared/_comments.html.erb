@@ -1,0 +1,12 @@
+	<% div_for(comment, :class => "#{reply_class(reply)}") do %>
+		<span class="commentSubject"><strong><%=h comment.subject %></strong></span>
+		<span class="replyLink"><%= link_to "Reply", new_comment_comment_path(comment), :class => "replyLink" %></span>
+		<div class="commentBody">
+			<%=h comment.content %>
+		</div>
+		<span class="commentNick"><i><%=h comment.nickname %> from <%=h comment.location %></i></span>
+		<br style="clear:both" />
+	<% end %>
+	
+	<%# Render any comments on comments %>
+	<%= render :partial => "shared/comments", :collection => comment.comments, :as => :comment, :locals => {:reply => reply + 1}%>

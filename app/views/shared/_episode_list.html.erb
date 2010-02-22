@@ -1,0 +1,18 @@
+<% @episodes.each do |episode| %>
+	<div class="episode">
+		<h1><%= episode.title %></h1>
+
+		<div class="vimeoContainer">
+			<%= episode.embed_tag %>
+		</div>
+
+		<div class="episodeDescription">
+			<%= episode.description %><br />
+		</div>
+		<span class="moreLink"><%= link_to "Show Notes &amp; Comments", episode %></span>
+		<br style="clear:both" />
+	</div>
+	<% unless @episodes.last == episode %>
+		<hr />
+	<% end %>
+<% end %>

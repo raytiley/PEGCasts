@@ -1,0 +1,8 @@
+
+$("#comments").before('<div id="dialog"><%= escape_javascript(render :partial => "form") %></div>');
+$("#dialog").dialog({ modal: true, draggable: false, height: 500, width: 500, title: "Reply to: " + "<%= params[:reply_title] %>", resizable: false });
+$("#new_comment").submit(function(){
+	$.post($(this).attr("action"), $(this).serialize(), null, "script");
+	return false;
+})
+

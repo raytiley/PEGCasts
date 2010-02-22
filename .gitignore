@@ -1,0 +1,8 @@
+log/*.log
+tmp/**/*
+doc/api
+doc/app
+Capfile
+deploy.rb
+db/*.sqlite3
+config/database.yml

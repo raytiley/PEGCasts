@@ -1,0 +1,26 @@
+<% form_for [@commentable, Comment.new] do |f| %>
+  <%= f.error_messages %>
+  <p>
+	<%= f.label :nickname %><br />
+	<%= f.text_field :nickname, :value => "Bilbo Baggins" %>
+  </p>
+  <p>
+	<%= f.label :location %><br />
+	<%= f.text_field :location, :value => "Bag End, Middle Earth" %>
+  </p>
+  <p>
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </p>
+  <p>
+    <%= f.label :content, "Comment" %><br />
+    <%= f.text_area :content, :size => "40x5" %>
+  </p>
+  <p>
+    <%= f.hidden_field :commentable_id %>
+  </p>
+  <p>
+    <%= f.hidden_field :commentable_type %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

@@ -1,0 +1,10 @@
+	//Destroy the Form Dialog Box, and remove the div for it
+	$("#dialog").dialog('destroy');
+	$("#dialog").remove();
+	//Add the new comment
+	$("#comment_<%= @comment.commentable.id -%>").after("<%= escape_javascript(render(:partial => 'shared/comments', :locals => {:reply => get_reply_level(@comment), :comment => @comment})) %>");
+	$("#comment_<%= @comment.id -%>").effect("highlight", {}, 3000);
+	//unbind all listeners for the reply link and rebind.  Allows for newley added comment to be replied to.
+	$(".replyLink").unbind();
+	$(".replyLink").replyWithAjax();
+

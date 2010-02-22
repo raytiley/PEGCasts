@@ -1,0 +1,182 @@
+* {
+	font-family:Helvetica,Arial,sans-serif;
+
+}
+
+img {
+	border:0;
+}
+
+a {
+  outline: none;
+}
+
+body {
+	background:#8EBFBF;
+	margin:0;
+	padding:0;
+}
+
+hr {
+	margin:10px 0 20px 0;
+}
+
+#page-wrap {
+	box-shadow: 0 0 10px #000000;
+	-moz-box-shadow: 0 0 10px #000000;
+	-webkit-box-shadow: 0 0 10px #000000;
+	margin: 0 auto;
+	width: 900px;
+	background:#CEECF2;
+	padding:0;
+}
+
+#header {
+	box-shadow: 0 0 10px #000000;
+	-moz-box-shadow: 0 0 10px #000000;
+	-webkit-box-shadow: 0 0 10px #000000;
+	background:#4c735d;
+	padding: 20px;
+}
+#header img {
+	float:left;
+}
+
+#Navigation {
+	float:left;
+	margin:0px auto;
+}
+
+#Navigation ul {
+	list-style:none;
+	
+}
+#Navigation li{
+	width:300px;
+	height:45px;
+	margin:0 0 10px 0;
+	padding:5px 5px 5px 15px;
+	font-size:250%;
+	
+}
+#Navigation a {
+	
+	background-color:#CEECF2;
+	display:block;
+	color:black;
+	text-decoration:none;
+	padding:2px 2px 2px 15px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px; /* future proofing */
+	-khtml-border-radius: 10px; /* for old Konqueror browsers */
+	box-shadow: 0 0 10px #000000;
+	-moz-box-shadow: 0 0 10px #000000;
+	-webkit-box-shadow: 0 0 10px #000000;
+	border:none;
+}
+#Navigation a:hover {
+	background-color:#8EBFBF;
+	color:white;
+}
+#content {
+	margin:10px;
+}
+
+h1 {
+	margin:10px 0 10px 0;
+}
+
+.vimeoContainer {
+	float:left;
+	width:460px;
+	
+}
+
+.episodeDescription {
+	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+	float:right;
+	margin: 0 auto;
+	width:400px;
+	height:245px;
+	font-size:150%;
+	line-height:150%;
+}
+
+
+.episodeNotes {
+	width:850px;
+	margin: 20px auto;
+}
+
+.moreLink {
+	margin:0 30px 0 0;
+	font-size:100%;
+	float:right;
+	
+}
+
+.moreLink a {
+	color:#401201;
+	font-weight:bold;
+	text-decoration:underline;
+	
+}
+
+.moreLink a:hover {
+	color:#4c735d;
+}
+
+#footer {
+	text-align:center;
+	padding:15px;
+	color:white;
+	font-size:80%;
+	background:#401201;
+	
+}
+#footer a{
+	color:white;
+}
+
+.comment {
+	margin: 5px 0 10px 0;
+	padding:10px;
+	border-color:#4c735d;
+	background:#8EBFBF;
+	width:400px;
+	border-style:solid;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px; /* future proofing */
+	-khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+.commentBody {
+	margin:10px 5px 15px 5px;
+}
+
+.commentNick {
+	float:right;
+}
+
+.replyLink {
+	float:right;
+	
+}
+.replyLink a {
+	color:#401201;
+	text-decoration:none;
+	font-size:70%;
+}
+.first_reply {
+	margin:5px 0 10px 40px;
+}
+
+.second_reply {
+	margin:5px 0 10px 80px;
+}
+
+.third_reply {
+	margin:5px 0 10px 120px;
+}
