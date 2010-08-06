@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  require "uri"
+  require "net/http"
+  
   def index
     @commentable = find_commentable
     @comments = @commentable.comments.all
@@ -18,16 +21,21 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @commentable = find_commentable
-    @comment = @commentable.comments.new(params[:comment])
-    if @comment.save
-      flash[:notice] = "Successfully created comment."
-      respond_to do |format|
-        format.html {redirect_to original_commentable(@comment)}
-        format.js
-      end
+    unless verify_captcha(params[:recaptcha_challenge_field], params[:recaptcha_response_field])
+      flash[:error] = "reCaptcha did not verify.  Please try again"
+      render :action => 'ajax_error'
     else
-      render :action => 'new'
+      @commentable = find_commentable
+      @comment = @commentable.comments.new(params[:comment])
+      if @comment.save
+        flash[:notice] = "Successfully created comment."
+        respond_to do |format|
+          format.html {redirect_to original_commentable(@comment)}
+          format.js
+        end
+      else
+        render :action => 'new'
+      end
     end
   end
   
@@ -69,5 +77,17 @@ class CommentsController < ApplicationController
     end
     return original
   end
-
+  
+  def verify_captcha challenge, response
+    params = {'privatekey' => '6LeYBwkAAAAAAPvejlUsY4TOkqF_KhgUDa6QJ7z0',
+              'remoteip'   => request.env['REMOTE_ADDR'],
+              'challenge'  => challenge,
+              'response'   => response }
+    x = Net::HTTP.post_form(URI.parse('http://www.google.com/recaptcha/api/verify'), params)
+    if x.body.include? "true"
+      return true
+    else
+      return false
+    end
+  end
 end

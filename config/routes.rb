@@ -1,6 +1,7 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :comments, :has_many => :comments
 
+ActionController::Routing::Routes.draw do |map|
+  map.recaptcha 'recaptcha', :controller => 'comments', :action => 'recaptcha'
+  map.resources :comments, :has_many => :comments
   map.resources :episodes, :has_many => :comments
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   map.about 'about', :controller => 'about', :action => 'index'
+  
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

@@ -39,5 +39,9 @@
     <%= f.label :content, "Comment" %><br />
     <%= f.text_area :content, :size => "60x5" %>
   </p>
+  <p>
+	Are you human?
+	<div id="comment_recaptcha"></div>
+  </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>

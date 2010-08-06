@@ -38,4 +38,7 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+  
+  ENV['RECAPTCHA_PUBLIC_KEY']  = '6LeYBwkAAAAAAI3f8N_yNxz-b4U6mw3xLgNWDaHH'
+  ENV['RECAPTCHA_PRIVATE_KEY'] = '6LeYBwkAAAAAAPvejlUsY4TOkqF_KhgUDa6QJ7z0'
 end
