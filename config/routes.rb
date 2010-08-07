@@ -3,6 +3,10 @@ ActionController::Routing::Routes.draw do |map|
   map.recaptcha 'recaptcha', :controller => 'comments', :action => 'recaptcha'
   map.resources :comments, :has_many => :comments
   map.resources :episodes, :has_many => :comments
+  map.resources :users
+  map.login 'login', :controller => 'user_sessions', :action => 'new'  
+  map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'  
+  map.resources :user_sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
 

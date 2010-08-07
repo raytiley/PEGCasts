@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_filter :require_admin, :only => [:edit, :destroy]
   require "uri"
   require "net/http"
   

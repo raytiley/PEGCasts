@@ -1,6 +1,7 @@
 class EpisodesController < ApplicationController
   # GET /episodes
   # GET /episodes.xml
+  before_filter :require_admin, :only => [:new, :create, :edit]
   def index
     @episodes = Episode.find(:all, :conditions => {:published => true})
 
