@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   map.about 'about', :controller => 'about', :action => 'index'
+  map.faq 'faq', :controller => 'faq', :action => 'index'
   
   # Keep in mind you can assign values other than :controller and :action
 
