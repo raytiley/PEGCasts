@@ -21,22 +21,22 @@ class CommentsController < ApplicationController
   end
   
   def create
-    unless verify_captcha(params[:recaptcha_challenge_field], params[:recaptcha_response_field])
-      flash[:error] = "reCaptcha did not verify.  Please try again"
-      render :action => 'ajax_error'
     else
       @commentable = find_commentable
       @comment = @commentable.comments.new(params[:comment])
-      if @comment.save
+      if verify_captcha(params[:recaptcha_challenge_field], params[:recaptcha_response_field]) && @comment.save
         flash[:notice] = "Successfully created comment."
         respond_to do |format|
           format.html {redirect_to original_commentable(@comment)}
           format.js
         end
       else
-        render :action => 'new'
+        respond_to do |format|
+          flash[:notice] = "There were errors submitting your comment.  Please try again."
+          format.html {render :action => 'new'}
+          format.js {render :action => 'ajax_error'}
+        end
       end
-    end
   end
   
   def edit
@@ -87,6 +87,7 @@ class CommentsController < ApplicationController
     if x.body.include? "true"
       return true
     else
+      flash[:notice] = "reCaptcha did not verify.  Please try again"
       return false
     end
   end
