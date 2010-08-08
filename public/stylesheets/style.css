@@ -139,6 +139,34 @@ h1 {
 	color:white;
 }
 
+#SocialNetwork {
+	float:left;
+	width:400px;
+	vertical-align:center;
+}
+#SocialNetwork a {
+	text-decoration:none;
+	font-size:20px;
+}
+#SocialNetwork ul {
+	list-style-type:none;
+}
+#SocialNetwork li img{
+	vertical-align:middle;
+}
+#SocialNetwork li {
+	margin:5px;
+}
+#SocialNetwork img {
+	padding:0px;
+	margin:0 5px 0 0;
+}
+
+#CreativeCommons {
+	float:left;
+	width:400px;
+}
+
 .comment {
 	margin: 5px 0 10px 0;
 	padding:10px;
@@ -179,4 +207,13 @@ h1 {
 
 .third_reply {
 	margin:5px 0 10px 120px;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
 }
